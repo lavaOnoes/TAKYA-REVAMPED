@@ -1,4 +1,4 @@
 ![logo](https://i.imgur.com/qh1qJTn.png)
 <p align="center">
-   "my own[ take](https://github.com/whayay/yahud) of [yahud](https://github.com/whayay/yahud)
+   <strong>my own take of <a href=https://github.com/whayay/yahud>yahud</a> by whayay</strong>
 </p>
