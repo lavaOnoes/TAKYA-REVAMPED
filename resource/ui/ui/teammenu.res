@@ -18,7 +18,7 @@
 		"fieldName"									"FullScreenBG"
 		"xpos"										"0"
 		"ypos"										"0"
-		"zpos"										"0"
+		"zpos"										"-1"
 		"wide"										"f0"
 		"tall"										"f0"
 		"visible"									"1"
@@ -44,6 +44,23 @@
 		"proportionaltoparent"						"1"
 		"alpha"										"50"
 	}
+	
+	"BlueSplat"
+	{
+		"ControlName"								"ImagePanel"
+		"fieldName"									"BlueSplat"
+		"xpos"										"0"
+		"ypos"										"0"
+		"zpos"										"0"
+		"wide"										"250"
+		"tall"										"200"
+		"visible"									"1"		
+		"enabled"									"1"
+		"scaleImage"								"1"	
+		"image"										"../vgui/replay/thumbnails/splat_180"
+		"drawcolor"									"HUDBlueTeam"
+	}
+	
 	"BlueButton"
 	{
 		"ControlName"								"CExButton"
@@ -63,7 +80,7 @@
 		"paintbackground"							"1"
 
 		"defaultBgColor_override"					"HUDBlueTeamSolid"
-		"armedBgColor_override"						"White"
+		"armedBgColor_override"						"14 14 14 255"
 		"depressedBgColor_override"					"HUDBlueTeamSolid"
 		
 		"pin_to_sibling"							"SpectateButton"
@@ -101,6 +118,22 @@
 
 		"pin_to_sibling"							"BlueButton"
 	}
+	
+	"RedSplat"
+	{
+		"ControlName"								"ImagePanel"
+		"fieldName"									"RedSplat"
+		"xpos"										"rs1"
+		"ypos"										"rs1"
+		"zpos"										"0"
+		"wide"										"250"
+		"tall"										"200"
+		"visible"									"1"		
+		"enabled"									"1"
+		"scaleImage"								"1"	
+		"image"										"../vgui/replay/thumbnails/splat"
+		"drawcolor"									"HUDRedTeam"
+	}
 	"RedButton"
 	{
 		"ControlName"								"CExButton"
@@ -121,7 +154,7 @@
 		"paintbackground"							"1"
 
 		"defaultBgColor_override"					"HUDRedTeamSolid"
-		"armedBgColor_override"						"White"
+		"armedBgColor_override"						"14 14 14 255"
 		"depressedBgColor_override"					"HUDRedTeamSolid"
 		
 		"pin_to_sibling"							"SpectateButton"
@@ -216,7 +249,7 @@
 		"paintbackground"							"1"
 
 		"defaultBgColor_override"					"60 60 60 255"
-		"armedBgColor_override"						"255 255 255 255"
+		"armedBgColor_override"						"14 14 14 255"
 		"depressedBgColor_override"					"60 60 60 255"
 	}
 	"SpectateShortKey"
