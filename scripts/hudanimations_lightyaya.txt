@@ -1,0 +1,432 @@
+//=====================================================================================================================
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthBonusImage 		Alpha		"0"		    			Linear 	0.0 0.0
+
+	Animate	PlayerStatusHealthValueSpec 		FgColor		"Positive"	        	Linear 	0.0 0.0 
+	Animate HealthBarBuff						Alpha		"255"					Linear 	0.0 0.0
+	//Animate HealthBarBuff						Alpha		"0"						Linear 	0.2 0.4
+	
+	RunEvent HudHealthBonusPulseLoop			0.4
+}
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 				0.0
+	StopEvent HudHealthBonusPulseLoop 			0.0
+
+	Animate	PlayerStatusHealthValueSpec 	   	FgColor		"White"	        		Linear 	0.0 0.0
+	Animate HealthBarBuff						Alpha		"0"						Linear 	0.0 0.0
+}
+//=====================================================================================================================
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthValueSpec			FgColor		"Low"					Linear	0.0	0.0
+	Animate	PlayerStatusHealthBonusImage 		Alpha		"140"		        	Linear 	0.0 0.0
+	Animate	PlayerStatusHealthBonusImage 		Alpha		"0"		         		Linear 	0.2 0.4
+
+	RunEvent HudHealthDyingPulseLoop			0.25
+}
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse				0.0
+	StopEvent HudHealthDyingPulseLoop			0.0
+
+	Animate	PlayerStatusHealthValueSpec		FgColor		"White"					Linear		0.0		0.0
+}
+//=====================================================================================================================
+event HudLowAmmoPulse
+{	
+	//Animate			HudWeaponLowAmmoImage			Alpha	"140"							Linear		0.0		0.0
+	Animate			AmmoInClip						FgColor		"Ammo Low"				Linear		0.0		0.0
+	Animate			AmmoInReserve					FgColor		"Ammo Low"				Linear		0.0		0.0
+	Animate			AmmoNoClip						FgColor		"Ammo Low"				Linear		0.0		0.0
+
+	RunEvent		HudLowAmmoPulseLoop				0.25
+}
+event HudLowAmmoPulseStop
+{
+	StopEvent		HudLowAmmoPulse					0.0
+	StopEvent		HudLowAmmoPulseLoop				0.0
+	
+	//Animate			HudWeaponLowAmmoImage			Alpha	"0"								Linear		0.0		0.0
+	Animate			AmmoInClip						FgColor		"White"					Linear		0.0		0.0
+	Animate			AmmoInReserve					FgColor		"White"					Linear		0.0		0.0
+	Animate			AmmoNoClip						FgColor		"White"					Linear		0.0		0.0
+}
+//=====================================================================================================================
+event HudMedicCharged
+{
+	Animate			ChargeLabel						FgColor		"Uber"					Linear		0.0		0.0
+	Animate			ChargeMeter						FgColor		"Uber"					Linear		0.0		0.0
+
+	RunEvent		HudMedicChargedLoop				0.6
+}
+event HudMedicChargedStop
+{
+	StopEvent		HudMedicCharged					0.0
+	StopEvent		HudMedicChargedLoop				0.0
+
+	Animate			ChargeLabel						FgColor		"White"					Linear		0.0		0.0
+	Animate			ChargeMeter						FgColor		"White"					Linear		0.0		0.0
+}
+//=====================================================================================================================
+event HudTournamentSetupPanelOpen
+{
+	Animate			HudTournamentSetup				ypos		"c+16"					Spline		0.0 	0.0
+}
+event HudTournamentSetupPanelClose
+{
+	Animate			HudTournamentSetup				ypos		"-65"					Linear		0.0		0.0
+}
+//=====================================================================================================================
+event FlagOutline
+{
+	RunEvent		FlagOutlineHide					0.0
+
+	Animate			OutlineImage					Alpha		"255"					Linear		0.1		0.2
+
+	Animate			OutlineImage					Position	"c-14 r70"				Linear		0.1		0.2
+	Animate			OutlineImage					Size		"28 28"					Linear		0.1		0.2
+
+	Animate			OutlineImage					Position	"c-5 r0"				Linear		0.7		0.2
+	Animate			OutlineImage					Size		"10 10"					Linear		0.7		0.2
+
+	Animate			OutlineImage					Alpha		"0"						Linear		0.9		0.1
+}
+//=====================================================================================================================
+event ActiveTimerBGPulse
+{
+	Animate			ActiveTimerBG					Alpha		"255"					Linear		0.0		0.0
+}
+event ActiveTimerHighlight
+{	
+	Animate 		TimePanelBG 					Alpha		"255"					Linear 		0.0 	0.0
+}
+event ActiveTimerDim
+{
+	Animate 		TimePanelBG 					Alpha		"0"						Linear 		0.0 	0.0
+}
+//=====================================================================================================================
+event SurveyShowSequence
+{
+	RunEventChild	Survey	SurveyDelete 0.1
+}
+//=====================================================================================================================
+event HintMessageShow
+{
+	Animate			HudHintDisplay					HintSize	"1"						Deaccel		0.0		0.3
+	Animate			HudHintDisplay					HintSize	"0"						Deaccel		10.2	0.3
+}
+event HintMessageHide
+{
+	Animate			HudHintDisplay					HintSize	"0"						Deaccel		0.2		0.3
+}
+event KeyHintMessageShow
+{
+	Animate			HudHintKeyDisplay				Alpha		"255"					Linear		0.0		0.5
+	Animate			HudHintKeyDisplay				Alpha		"0"						Linear		12.0	1.0
+}
+event KeyHintMessageHide
+{
+	Animate			HudHintKeyDisplay				Alpha		"0"						Linear		0.0		0.5
+}
+
+//=====================================================================================================================
+
+event CasualCategory_Selected
+{
+	Animate 		Title 							FgColor	 	"White" 				Linear	0 0.2
+	Animate 		Shade 							Wide	 	"f0" 					Spline	0 0.4
+}
+
+event CasualCategory_NotSelected
+{
+	Animate 		Title 							FgColor	 	"37 37 37 255" 			Linear	0 0.2
+	Animate 		Shade 							Wide	 	"0" 					Spline	0 0.4
+}
+
+//===========================================================================================================================
+
+event FillCounter
+{
+	RunEvent CounterDigitLoop 						0.0
+
+	Animate % 										Alpha 		"255" 							Linear 	0.0 	0.0
+	Animate Counter10 								Alpha 		"255" 							Linear 	5.5 	0.0
+	Animate Counter10 								Alpha 		"0" 							Linear 	11.0 	0.0
+	Animate Counter20 								Alpha 		"255" 							Linear 	11.0 	0.0
+	Animate Counter20 								Alpha 		"0" 							Linear 	16.5 	0.0
+	Animate Counter30 								Alpha 		"255" 							Linear 	16.5 	0.0
+	Animate Counter30 								Alpha 		"0" 							Linear 	22.0 	0.0
+	Animate Counter40 								Alpha 		"255" 							Linear 	22.0 	0.0
+	Animate Counter40 								Alpha 		"0" 							Linear 	27.5 	0.0
+	Animate Counter50 								Alpha 		"255" 							Linear 	27.5 	0.0
+	Animate Counter50 								Alpha 		"0" 							Linear 	33.0 	0.0
+	Animate Counter60 								Alpha 		"255" 							Linear 	33.0 	0.0
+	Animate Counter60 								Alpha 		"0" 							Linear	38.5 	0.0
+	Animate Counter70 								Alpha 		"255" 							Linear 	38.5 	0.0
+	Animate Counter70 								Alpha 		"0" 							Linear 	44.0 	0.0
+	Animate Counter80 								Alpha 		"255" 							Linear 	44.0 	0.0
+	Animate Counter80 								Alpha 		"0" 							Linear 	49.5 	0.0
+	Animate Counter90 								Alpha 		"255" 							Linear 	49.5 	0.0
+	Animate Counter90 								Alpha 		"0" 							Linear 	55.0 	0.0
+	Animate Counter100 								Alpha 		"255" 							Linear 	55.0 	0.0
+	Animate % 										Fgcolor 	"0 200 0 255" 					Linear 	55.0 	0.0
+}
+
+event CounterDigit
+{
+	Animate Counter0 								Alpha 		"255" 							Linear 	0.0 	0.0
+	Animate Counter0 								Alpha 		"0" 							Linear 	0.55 	0.0
+	Animate Counter1 								Alpha 		"255" 							Linear 	0.55 	0.0
+	Animate Counter1 								Alpha 		"0" 							Linear 	1.1 	0.0
+	Animate Counter2 								Alpha		"255" 							Linear 	1.1 	0.0
+	Animate Counter2 								Alpha 		"0" 							Linear 	1.65 	0.0
+	Animate Counter3 								Alpha 		"255" 							Linear 	1.65 	0.0
+	Animate Counter3 								Alpha 		"0" 							Linear 	2.2 	0.0
+	Animate Counter4 								Alpha 		"255" 							Linear 	2.2 	0.0
+	Animate Counter4 								Alpha 		"0" 							Linear 	2.75 	0.0
+	Animate Counter5 								Alpha 		"255" 							Linear 	2.75 	0.0
+	Animate Counter5								Alpha 		"0" 							Linear 	3.3 	0.0
+	Animate Counter6 								Alpha 		"255" 							Linear 	3.3 	0.0
+	Animate Counter6 								Alpha 		"0" 							Linear 	3.85 	0.0
+	Animate Counter7 								Alpha 		"255" 							Linear 	3.85 	0.0
+	Animate Counter7 								Alpha 		"0" 							Linear 	4.4 	0.0
+	Animate Counter8 								Alpha 		"255" 							Linear 	4.4 	0.0
+	Animate Counter8 								Alpha 		"0" 							Linear 	4.95 	0.0
+	Animate Counter9 								Alpha 		"255" 							Linear 	4.95 	0.0
+}
+
+event CounterDigitLoop
+{
+	RunEvent CounterDigit 							0.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	0.0 	0.0
+
+	RunEvent CounterDigit 							5.5
+	Animate Counter9 								Alpha 		"0" 							Linear 	5.5 	0.0
+
+	RunEvent CounterDigit 							11.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	11.0 	0.0
+
+	RunEvent CounterDigit 							16.5
+	Animate Counter9 								Alpha 		"0" 							Linear 	16.5 	0.0
+
+	RunEvent CounterDigit 							22.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	22.0 	0.0
+
+	RunEvent CounterDigit 							27.5
+	Animate Counter9 								Alpha 		"0" 							Linear 	27.5 	0.0
+
+	RunEvent CounterDigit 							33.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	33.0 	0.0
+
+	RunEvent CounterDigit 							38.5
+	Animate Counter9 								Alpha 		"0" 							Linear 	38.5 	0.0
+
+	RunEvent CounterDigit 							44.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	44.0 	0.0
+
+	RunEvent CounterDigit 							49.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	49.0 	0.0
+
+	Animate Counter9 								Alpha 		"0" 							Linear 	55.0 	0.0
+}
+
+event ClearCounter
+{
+	StopEvent FillCounter							0.0
+	StopEvent CounterDigit 							0.0
+	StopEvent CounterDigitLoop 						0.0
+
+	Animate % 										Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate % 										Fgcolor 	"255 255 0 255" 				Linear 	0.0 	0.0
+	Animate Counter10 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter20								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter30 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter40 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter50 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter60 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter70 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter80 								Alpha 		"0"								Linear 	0.0 	0.0
+	Animate Counter90 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter100 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter0 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter1 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter2 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter3 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter4 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter5 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter6 								Alpha 		"0" 							Linear	0.0 	0.0
+	Animate Counter7 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter8 								Alpha 		"0" 							Linear 	0.0 	0.0
+	Animate Counter9 								Alpha 		"0" 							Linear 	0.0 	0.0
+}
+
+//===========================================================================================================================
+
+event MenuOpen
+{	
+    RunEvent ScopeDie								0.0
+	StopEvent MenuClose 							0.0
+
+	Animate HudMenu 								Alpha 			"255"						Linear 	0.0 	0.1
+	Animate HudMenu 								SelectionAlpha 	"255"						Linear 	0.0 	0.1
+	Animate HudMenu 								FgColor			"FgColor"					Linear 	0.0 	0.1
+	Animate HudMenu 								MenuColor		"MenuColor"					Linear 	0.0 	0.1
+	Animate HudMenu 								ItemColor		"ItemColor"					Linear 	0.0 	0.1
+	Animate HudMenu 								TextScan		"1"							Linear 	0.0 	0.1
+
+	Animate HudMenu									Blur			"1"							Linear	0.0		0.01
+	
+	RunEvent ClearCounter 							0.0
+}
+
+event MenuPulse
+{
+	Animate HudMenu									Blur			"7"							Linear	0.0		0.1
+	Animate HudMenu									Blur			"2"							Deaccel	0.1		0.1
+	Animate HudMenu									Blur			"7"							Linear	0.2		0.1
+	Animate HudMenu									Blur			"2"							Deaccel	0.3		0.1
+	Animate HudMenu									Blur			"7"							Linear	0.4		0.1
+	Animate HudMenu									Blur			"2"							Deaccel	0.5		0.1
+	Animate	HudMenu									Blur			"1"							Deaccel	0.6		0.4
+
+	RunEvent ClearCounter 							0.0
+}
+
+event MenuClose
+{
+	Animate HudMenu 								Alpha 			"0" 						Linear 	0.0 	1
+	Animate HudMenu 								SelectionAlpha 	"0" 						Linear 	0.0 	1
+	Animate HudMenu 								FgColor			"0 0 0 0" 					Linear 	0.0 	1
+	Animate HudMenu 								MenuColor		"0 0 0 0" 					Linear 	0.0 	1
+	Animate HudMenu 								ItemColor		"0 0 0 0" 					Linear 	0.0 	1
+	
+	RunEvent FillCounter 							0.0
+}
+
+//===========================================================================================================================
+
+event HudTakeDamageFront
+{
+}
+event HudTakeDamageLeft
+{
+}
+event HudTakeDamageRight
+{
+}
+event HudTakeDamageBehind
+{
+}
+
+event TimerIncrement{}
+event TimerDecrement{}
+event ResourceIncrement{}
+event ResourceDecrement{}
+event ResourcePickup{}
+event ControlPointIconShrink{}
+event ControlPointIconGrow{}
+event AccountMoneyRemoved{}
+event AccountMoneyAdded{}
+event AccountMoneyInvisible{}
+event HudSpyDisguiseChanged{}
+event HudSpyDisguiseHide{}
+event HudSpyDisguiseFadeIn{}
+event HudSpyDisguiseFadeOut{}
+event HudSnapShotReminderIn{}
+event HudReplayReminderIn{}
+event HudReplayReminderIn2{}
+event HudReplayTipIn{}
+event HudReplayTipOut{}
+event VideoCaptionFadeIn{}
+event VideoCaptionFadeOut{}
+event ArenaVsPanelOnShow{}
+event ArenaVsPanelSlideIn{}
+event ArenaVsPanelSlideOut{}
+event HudCartAlarmPulse{}
+event HudCartAlarmPulseLoop{}
+event HudCartAlarmPulseStop{}
+event OvertimeLabelPulseRed{}
+event SuddenDeathLabelPulseRed{}
+event TeamsFullArrowAnimate{}
+event TeamsFullArrowAnimateLoop{}
+event TeamsFullArrowAnimateEnd{}
+event TrainingHudBounce{}
+event TrainingPressSpacebarBlink{}
+event TrainingPressSpacebarBlinkLoop{}
+event TrainingPressSpacebarBlinkStop{}
+event IntroMovieContinueBlink{}
+event IntroMovieContinueBlinkLoop{}
+event IntroMovieContinueBlinkStop{}
+event HasMOTDBlink{}
+event HasMOTDBlinkLoop{}
+event HasMOTDBlinkStop{}
+event HasNotificationsBlink{}
+event HasNotificationsBlinkLoop{}
+event HasNotificationsBlinkStop{}
+event AddToCartBlink{}
+event NotificationsPresentBlink{}
+event NotificationsPresentBlinkLoop{}
+event NotificationsPresentBlinkStop{}
+event DamagedPlayer{}
+event SpyWarningFlash{}
+event SpyWarningFlashLoop{}
+event SpyWarningFlashEnd{}
+event HudReadyPulse{}
+event HudReadyPulseLoop{}
+event HudReadyPulseEnd{}
+event RespecEarnedPulse{}
+event RespecEarnedPulseLoop{}
+event RespecEarnedPulseEnd{}
+event RespecEarnedPulseLoss{}
+event RespecEarnedPulseLoopLoss{}
+event RespecEarnedPulseEndLoss{}
+event RDPositiveScorePulse{}
+event RDNegativeScorePulse{}
+event CollectionCrafting_OKBlink_Repeatable{}
+event CollectionCrafting_OKBlink{}
+event QuestItem_Options_Flash{}
+event CompetitiveGame_LowerChatWindow{}
+event CompetitiveGame_RestoreChatWindow{}
+event HudTournament_MoveChatWindow{}
+event HudTournament_AnimateTeams_In{}
+event HudTournament_AnimateTeams_Out{}
+event HudMatchStatus_ShowMatchStartDoors{}
+event HudMatchStatus_ShowRankMatch{}
+event HudTournament_DoorsCleanup{}
+event PlayDoorSlamParticles{}
+event PlayDoorCloseAnim{}
+event PlayDoorOpenAnim{}
+event HudTournament_ShowRoundSign{}
+event HudTournament_PlaySignAnim{}
+event TeamStatus_PlayerDead{}
+event TeamStatus_PlayerAlive{}
+event HudMatchStatus_ShowMatchWinDoors{}
+event HudMatchStatus_ShowMatchWinDoors_NoOpen{}
+event MMenu_PlayList_Expand{}
+event MMenu_PlayList_Collapse{}
+event MMenu_PlayList_Collapse_Immediate{}
+event MMenu_SafeMode_Blink{}
+event PvPRankModelClicked{}
+event PvPRankLevelUpXPBar{}
+event PvPRankLevelUpModel{}
+event PvPRankLevelDownXPBar{}
+event PvPRankLevelDownModel{}
+event CompetitiveGame_ShowPvPRankPanel{}
+event PvPRankPanelShowXPChange{}
+event PyroVsHeavyWar_ShowChooseScene{}
+event PyroVsHeavyWar_PyroWinnerScene{}
+event CasualCategory_Checkbox_Hide{}
+event CasualCategory_Checkbox_Show{}
+event HealthProgressBar_Selected{}
+event HealthProgressBar_NotSelected{}
+event MMenu_UpdateButton_StartGlow{}
+event MMenu_UpdateButton_SubtleGlow{}
+event XPSourceShow_Positive{}
+event XPSourceShow_Negative{}
+event MapVoted{}
+event WinningNextMapVote{}
+event LosingNextMapVote{}
+
+//=====================================================================================================================
