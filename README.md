@@ -2,7 +2,7 @@
    
    <img height=200 src=https://i.imgur.com/qh1qJTn.png>
    
-   <strong>my own take of <a href=https://github.com/whayay/yahud>yahud</a> by whayay</strong> <br>by lavaOnoes
+   <strong>my own take of <a href=https://github.com/whayay/yahud>yahud</a> by whayay</strong> <br>by lavaOnoes <br><h2> !! STILL A W.I.P !!</h2>
    
 </div>
 
