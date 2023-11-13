@@ -16,6 +16,7 @@
 <img src=https://i.imgur.com/v4R5ErT.png>
 <img src=https://i.imgur.com/s0rhzk3.png>
 <img src=https://i.imgur.com/q0oojd2.png>
+<img src=https://i.imgur.com/TFQAsu3.png>
 
 # Ingame
 <img src=https://i.imgur.com/6WvUgTj.png>
